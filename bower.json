@@ -1,0 +1,12 @@
+{
+  "name": "js",
+  "version": "0.0.0",
+  "authors": [
+    "gouf <innocent.zero@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.0"
+  }
+}

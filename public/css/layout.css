@@ -1,0 +1,20 @@
+form {
+  clear: both;
+}
+.contents {
+  width: 930px;
+  height: auto;
+}
+.post {
+  border: thin solid rgba(0, 0, 0, 0.1);
+  float:left;
+  max-width: 300px;
+  background: #FEFEFE;
+  margin: 3px 2px;
+  padding: 3px;
+  cursor: pointer;
+}
+.post:hover {
+  background: rgba(255,140,0, 0.5);
+  border: thin solid rgba(255,140,0, 0.5);
+}

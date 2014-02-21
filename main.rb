@@ -9,6 +9,7 @@ class Post < YamlRecord::Base
   source File.expand_path('./post')
 end
 
+class PPLogQueue < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
@@ -30,3 +31,5 @@ end
     poem.destroy
   end
 end
+
+PPLogQueue.run! host: '127.0.0.1', port: 4567

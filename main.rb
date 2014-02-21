@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pp'
 require 'yaml_record'
+require_relative 'mec.rb'
 
 class Post < YamlRecord::Base
   properties :body
@@ -10,6 +11,8 @@ class Post < YamlRecord::Base
 end
 
 class PPLogQueue < Sinatra::Base
+  include PoemPoster
+
   configure :development do
     register Sinatra::Reloader
   end

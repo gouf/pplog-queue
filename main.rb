@@ -9,10 +9,6 @@ class Post < YamlRecord::Base
   source File.expand_path('./post')
 end
 
-get '/' do
-  @posts = Post.all
-  erb :index
-end
   configure :development do
     register Sinatra::Reloader
   end
@@ -21,4 +17,8 @@ post '/create' do
   body = params[:body]
   Post.create(:body => body)
   redirect '/'
+  get '/' do
+    @posts = Post.all
+    erb :index
+  end
 end

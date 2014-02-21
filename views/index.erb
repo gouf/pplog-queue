@@ -1,10 +1,12 @@
 <div class="contents">
-<% @posts.each do |post| %>
-  <div class="post">
-    <pre><%= post.body %></pre>
-    <div class="control"></div>
-  </div>
-<% end %>
+  <div class="mock-post" >ぽすとするのだー</div>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <span style="display:none" class="id"><%= post.id %></span>
+      <pre><%= post.body %></pre>
+      <div class="control"></div>
+    </div>
+  <% end %>
 </div>
 
 <form action="/create" method="POST">

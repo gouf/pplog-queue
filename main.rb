@@ -24,4 +24,9 @@ end
     redirect '/'
   end
 
+  post '/post' do
+    poem = Post.find_by_id(params[:id])
+    post_poem poem.body
+    poem.destroy
+  end
 end

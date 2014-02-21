@@ -2,7 +2,8 @@ form {
   clear: both;
 }
 .contents {
-  width: 930px;
+  width: 830px;
+  min-height: 100px;
   height: auto;
 }
 .post {

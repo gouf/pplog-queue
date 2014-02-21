@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require 'pp'
 require 'yaml_record'
 
@@ -13,6 +13,9 @@ get '/' do
   @posts = Post.all
   erb :index
 end
+  configure :development do
+    register Sinatra::Reloader
+  end
 
 post '/create' do
   body = params[:body]

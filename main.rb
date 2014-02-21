@@ -13,12 +13,15 @@ end
     register Sinatra::Reloader
   end
 
-post '/create' do
-  body = params[:body]
-  Post.create(:body => body)
-  redirect '/'
   get '/' do
     @posts = Post.all
     erb :index
   end
+
+  post '/create' do
+    body = params[:body]
+    Post.create(:body => body)
+    redirect '/'
+  end
+
 end

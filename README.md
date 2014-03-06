@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #pplog-queue
 ぽえみをちょっと便利に。
 
@@ -29,3 +30,9 @@ rackup -p 9292
 ```
 
 Access to ```http://localhost:9292/```
+=======
+pplog-queue
+===========
+
+ぽえみをちょっと便利に。
+>>>>>>> 5b523e0... Initial commit

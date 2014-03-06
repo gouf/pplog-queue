@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 #pplog-queue
 ぽえみをちょっと便利に。
 
@@ -30,7 +28,5 @@ password: 'your_pass_word'
 rackup -p 9292
 ```
 
-Access to ```http://localhost:9292/```
-=======
-=======
->>>>>>> github/master
+Access to
+```http://localhost:9292/```

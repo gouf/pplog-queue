@@ -34,5 +34,3 @@ class PPLogQueue < Sinatra::Base
     poem.destroy
   end
 end
-
-PPLogQueue.run! host: '127.0.0.1', port: 4567

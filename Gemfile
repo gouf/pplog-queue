@@ -10,3 +10,4 @@ gem 'guard-rspec', require: false
 gem 'rspec'
 gem 'should_clean', require: false
 gem 'should_not', require: false
+gem 'webmock', require: false

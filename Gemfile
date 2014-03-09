@@ -7,3 +7,4 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'yaml_record'
 gem 'guard-rspec', require: false
+gem 'rspec'

@@ -1,14 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pp'
-require 'yaml_record'
 require_relative 'mec.rb'
+require_relative 'yaml_record'
 
-class Post < YamlRecord::Base
-  properties :body
-  adapter :local
-  source File.expand_path('./post')
-end
 
 class PPLogQueue < Sinatra::Base
   include PoemPoster

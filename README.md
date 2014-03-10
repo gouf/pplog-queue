@@ -1,4 +1,7 @@
 #pplog-queue
+
+[![Coverage Status](https://coveralls.io/repos/gouf/pplog-queue/badge.png)](https://coveralls.io/r/gouf/pplog-queue)
+
 ぽえみをちょっと便利に。
 
 はじめてのSinatra アプリケーションを作りました。

@@ -1,6 +1,7 @@
 #pplog-queue
 
 [![Coverage Status](https://coveralls.io/repos/gouf/pplog-queue/badge.png)](https://coveralls.io/r/gouf/pplog-queue)
+[![Build Status](https://travis-ci.org/gouf/pplog-queue.png?branch=dev)](https://travis-ci.org/gouf/pplog-queue)
 
 ぽえみをちょっと便利に。
 

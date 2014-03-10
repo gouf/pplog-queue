@@ -7,6 +7,7 @@
 require 'rack/test'
 require 'webmock/rspec'
 require 'should_not/rspec'
+require 'fakeweb'
 require 'coveralls'
 
 Coveralls.wear!

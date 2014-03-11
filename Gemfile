@@ -14,3 +14,4 @@ gem 'webmock', require: false
 gem 'coveralls', require: false
 gem 'rake'
 gem 'fakeweb'
+gem 'fuubar'

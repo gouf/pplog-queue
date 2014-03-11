@@ -145,7 +145,7 @@ describe PoemPoster do
     end
   end
   after {
-    FakeWeb.allow_net_connect = false
+    FakeWeb.allow_net_connect = true
   }
 end
 

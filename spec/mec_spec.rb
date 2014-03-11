@@ -71,11 +71,10 @@ describe PoemPoster do
         subject.field_with(name: 'session[username_or_email]').value
       }
       it {
-        expect(fillup_auth_form).not_to be_nil
+        should_not be_nil
       }
       it 'form action' do
-        action = fillup_auth_form.action
-        expect(action).to eq 'https://api.twitter.com/oauth/authorize'
+        expect(subject.action).to eq @auth_twitter
       end
       it 'username_or_email field is not empty' do
         username_field.should_not be_empty
@@ -94,20 +93,18 @@ describe PoemPoster do
         expect(subject.instance_of?(Mechanize::Page)).to be_true
       end
       it 'page has form' do
-        form = submit_auth_form(fillup_auth_form).forms.count
+        form = subject.forms.count
         expect(form).not_to eq 0
         expect(form).to eq 1
       end
       it 'page has link' do
-        page = submit_auth_form(fillup_auth_form)
-        link = page.links.count
+        link = subject.links.count
         expect(link).to eq 1
       end
       it 'link text is "click here to continue"' do
-        page = submit_auth_form(fillup_auth_form)
-        page.links
-        link = page.link_with(text: 'click here to continue')
+        link = subject.link_with(text: 'click here to continue')
         expect(link).not_to be_nil
+        expect(link.instance_of?(Mechanize::Page::Link)).to be_true
       end
     end
     context "when passed confirm authorize page" do
@@ -115,20 +112,22 @@ describe PoemPoster do
         access_twitter_page
         login_to_twitter
       }
+      subject { pass_confirmation }
       it {
-        expect(pass_confirmation).not_to be_nil
+        should_not be_nil
       }
       it 'is pplog callback url' do
-        url = pass_confirmation.uri.to_s
+        url = subject.uri.to_s
         expect(url).to eq @pplog_callback_page
       end
     end
     context "when get pplog post new page" do
       it {
-        expect(get_post_new_page).not_to be_nil
+        expect(subject).not_to be_nil
+        expect(subject.instance_of?(Mechanize::Page)).to be_true
       }
       it "has a form" do
-        form = get_post_new_page.forms.count
+        form = subject.forms.count
         expect(form).not_to eq 0
         expect(form).to eq 1
         expect(form).not_to eq 2
@@ -140,7 +139,6 @@ describe PoemPoster do
         expect(page).not_to be_nil
       }
       it 'will get Argument Error' do
-        #return_data = post_poem()
         expect{post_poem()}.to raise_error(ArgumentError, 'wrong number of arguments (0 for 1)')
       end
       it 'will get nil' do

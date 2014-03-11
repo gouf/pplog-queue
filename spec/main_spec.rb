@@ -9,6 +9,9 @@ describe "PPLogQueue" do
     PPLogQueue.new
   end
 
+  before {
+    Post.all.each{|x| x.destroy}
+  }
   describe "Response Test" do
     before { get '/' }
     context "when accessing '/'" do
@@ -17,4 +20,7 @@ describe "PPLogQueue" do
       end
     end
   end
+  after {
+    Post.all.each{|x| x.destroy}
+  }
 end

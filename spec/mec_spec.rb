@@ -63,6 +63,13 @@ describe PoemPoster do
       before {
         access_twitter_page
       }
+      subject { fillup_auth_form }
+      let(:username_field) {
+        subject.field_with(name: 'session[username_or_email]').value
+      }
+      let(:password_field) {
+        subject.field_with(name: 'session[username_or_email]').value
+      }
       it {
         expect(fillup_auth_form).not_to be_nil
       }
@@ -71,12 +78,10 @@ describe PoemPoster do
         expect(action).to eq 'https://api.twitter.com/oauth/authorize'
       end
       it 'username_or_email field is not empty' do
-        value = fillup_auth_form.field_with(name: 'session[username_or_email]').value
-        expect(value).not_to be_empty
+        username_field.should_not be_empty
       end
       it 'password field is not empty' do
-        value = fillup_auth_form.field_with(name: 'session[password]').value
-        expect(value).not_to be_empty
+        password_field.should_not be_empty
       end
     end
 

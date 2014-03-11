@@ -7,7 +7,7 @@ function fadeOut(elm) {
 $('.post').click(function() {
   var id = $(this).children('.id').text()
   console.log(id);
-  var url = 'http://localhost:4567/post'
+  var url = '/post'
   $.ajax({
     type: 'POST',
     url: url,

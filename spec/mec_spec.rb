@@ -5,8 +5,6 @@ RSpec.configure do |config|
   config.include PoemPoster
 end
 
-FakeWeb.allow_net_connect = false
-
 describe PoemPoster do
   let(:dummyclass){Class.new {include PoemPoster}}
   context 'when load user info' do
@@ -20,6 +18,7 @@ describe PoemPoster do
 
   describe "getting pplog logged-in page" do
     before {
+      FakeWeb.allow_net_connect = false
       FakeWeb.register_uri(:get,
         (@auth_twitter = 'https://www.pplog.net/users/auth/twitter'),
         body: File.read('test_html/auth_twitter.html'),

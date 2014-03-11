@@ -122,6 +122,7 @@ describe PoemPoster do
       end
     end
     context "when get pplog post new page" do
+      subject { get_post_new_page }
       it {
         expect(subject).not_to be_nil
         expect(subject.instance_of?(Mechanize::Page)).to be_true

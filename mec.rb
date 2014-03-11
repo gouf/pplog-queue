@@ -4,13 +4,15 @@ require 'pp'
 module PoemPoster
   def post_poem poem
     return if poem.empty?
-    pplog_page = login()
-    pplog_new_poem_page = pplog_page.link_with(href: '/my/posts/new').click
+    new_post_form = get_post_new_page.forms.first
+    new_post_form.field_with(name: 'post[content]').value = poem
 
-    pplog_new_poem_form = pplog_new_poem_page.forms.first
-    pplog_new_poem_form.field_with(name: 'post[content]').value = poem
-    pplog_new_poem_form.submit
-    #pplog_page.back
+    new_post_form.submit
+  end
+
+  def get_post_new_page
+    pplog_home_page = get_pplog_home_page
+    new_poem_page = pplog_home_page.link_with(href: '/my/posts/new').click
   end
 
   def user_name
@@ -21,23 +23,49 @@ module PoemPoster
     YAML.load_file('login.yml')['password']
   end
 
-  def login
+  def get_pplog_home_page # 1 -> access_twitter_page
+    # Run authorize
+    access_twitter_page
+    login_to_twitter
+    pass_confirmation
+
+    @pplog_home_page
+  end
+
+  def access_twitter_page # 2 -> login_to_twitter
     a = Mechanize.new
-    user_name = user_name()
-    password  = password()
     # request login page
     url = 'https://www.pplog.net/users/auth/twitter'
-    page = a.get(url)
+    @twitter_page = a.get(url)
+  end
 
+  def login_to_twitter # 3 -> pass_confirmation
     # submitting login info
-    tw_auth_form = page.forms.first
-    tw_auth_form.field_with(name: 'session[username_or_email]').value = user_name
-    tw_auth_form.field_with(name: 'session[password]').value = password
-    submit_button = tw_auth_form.buttons.first
-    tw_auth_confirm_page = tw_auth_form.submit(submit_button)
+    auth_form = fillup_auth_form
+    submit_auth_form(fillup_auth_form)
+    auth_form
+  end
+
+  def fillup_auth_form
+    auth_form = @twitter_page.forms.first
+    user_name = user_name()
+    password  = password()
+    auth_form.field_with(name: 'session[username_or_email]').value = user_name
+    auth_form.field_with(name: 'session[password]').value = password
+    auth_form
+  end
+
+  def submit_auth_form auth_form
+    submit_button = auth_form.buttons.first
+    @auth_confirm_page = auth_form.submit(submit_button)
+  end
+
+
+  def pass_confirmation # 4 -> return pplog_page
     # allow authorize
-    pplog_page = tw_auth_confirm_page.link_with(text: 'click here to continue').click
-    raise 'Login Failed' if pplog_page.nil?
-    return pplog_page
+    pplog_page = @auth_confirm_page.link_with(text: 'click here to continue').click
+    fail 'Login Failed' if pplog_page.nil?
+
+    @pplog_home_page = pplog_page
   end
 end

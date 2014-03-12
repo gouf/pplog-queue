@@ -4,6 +4,7 @@ require_relative '../main'
 
 describe "PPLogQueue" do
   include Rack::Test::Methods
+  let(:dummyclass){Class.new {include PoemPoster}}
 
   def app
     PPLogQueue.new
@@ -54,15 +55,6 @@ describe "PPLogQueue" do
     let(:post_id) { 12345.to_s }
     context "when id not found" do
       it "response is not nil" do
-        post '/post', params = {
-          id: post_id
-        }
-        expect(last_response).not_to be_nil
-      end
-    end
-    context 'when id found' do
-      it 'response it not nil' do
-        post_id = Post.create(body: 'foo').id
         post '/post', params = {
           id: post_id
         }

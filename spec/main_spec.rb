@@ -11,7 +11,6 @@ describe "PPLogQueue" do
 
   before {
     Post.all.each{|x| x.destroy}
-    FakeWeb.allow_net_connect = false
   }
   describe "Response Test" do
     before { get '/' }
@@ -72,6 +71,5 @@ describe "PPLogQueue" do
   end
   after {
     Post.all.each{|x| x.destroy}
-    FakeWeb.allow_net_connect = true
   }
 end

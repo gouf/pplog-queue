@@ -15,3 +15,4 @@ gem 'coveralls', require: false
 gem 'rake'
 gem 'fakeweb'
 gem 'fuubar'
+gem 'reek'

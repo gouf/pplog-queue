@@ -19,6 +19,14 @@ describe "PPLogQueue" do
       it "get OK" do
         expect(last_response).to be_ok
       end
+      subject {last_response.body}
+      it "is HTML page" do
+        expect(subject).to be_include('ぽすと')
+        expect(subject).to be_include('textarea')
+        expect(subject).to be_include('submit')
+      end
+    end
+  end
   describe "Create new poem" do
     context "when post" do
       let(:post_body) { 'ぽぽぽ' }

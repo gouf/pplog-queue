@@ -53,14 +53,6 @@ describe "PPLogQueue" do
   end
   describe "Post to pplog" do
     let(:post_id) { 12345.to_s }
-    context "when id not found" do
-      it "response is not nil" do
-        post '/post', params = {
-          id: post_id
-        }
-        expect(last_response).not_to be_nil
-      end
-    end
   end
   after {
     Post.all.each{|x| x.destroy}

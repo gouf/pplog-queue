@@ -152,4 +152,3 @@ describe PoemPoster do
     FakeWeb.allow_net_connect = true
   }
 end
-

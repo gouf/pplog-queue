@@ -8,6 +8,7 @@ group :test, :deployment do
   gem 'yaml_record'
   gem 'rake', '>= 10.2.2'
   gem 'mina'
+  gem 'sinatra-contrib'
 end
 group :deployment do
 end
@@ -18,7 +19,6 @@ group :test do
   gem 'should_not', require: false
   gem 'webmock', require: false
   gem 'coveralls', require: false
-  gem 'sinatra-contrib'
   gem 'fakeweb'
   gem 'fuubar'
   gem 'reek'

@@ -1,5 +1,8 @@
 require 'spec_helper'
 require_relative '../mec'
+require 'dotenv'
+
+Dotenv.load
 
 RSpec.configure do |config|
   config.include PoemPoster

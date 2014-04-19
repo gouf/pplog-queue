@@ -9,10 +9,10 @@ describe PoemPoster do
   let(:dummyclass){Class.new {include PoemPoster}}
   context 'when load user info' do
     it 'is user_name as "your_user_name"' do
-      expect(user_name).to eq 'your_user_name'
+      expect(user_name).to eq ''
     end
     it 'is password as "your_password"' do
-      expect(password).to eq 'your_password'
+      expect(password).to eq ''
     end
   end
 

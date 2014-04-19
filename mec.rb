@@ -16,11 +16,13 @@ module PoemPoster
   end
 
   def user_name
-    YAML.load_file('login.yml')['user_name']
+    fail 'user name was not set.' if ENV['PPLOG_USER_NAME'].nil?
+    ENV['PPLOG_USER_NAME']
   end
 
   def password
-    YAML.load_file('login.yml')['password']
+    fail 'password was not set.' if ENV['PPLOG_USER_PASSWORD'].nil?
+    ENV['PPLOG_USER_PASSWORD']
   end
 
   def get_pplog_home_page # 1 -> access_twitter_page

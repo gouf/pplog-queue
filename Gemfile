@@ -12,7 +12,7 @@ gem 'should_clean', require: false
 gem 'should_not', require: false
 gem 'webmock', require: false
 gem 'coveralls', require: false
-gem 'rake'
+gem 'rake', '>= 10.2.2'
 gem 'fakeweb'
 gem 'fuubar'
 gem 'reek'

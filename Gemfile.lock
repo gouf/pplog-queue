@@ -182,7 +182,7 @@ DEPENDENCIES
   mechanize
   mina
   quality
-  rake
+  rake (>= 10.2.2)
   reek
   rspec
   should_clean

@@ -7,11 +7,11 @@ group :test, :deployment do
   gem 'sinatra'
   gem 'yaml_record'
   gem 'rake', '>= 10.2.2'
-  gem 'mina'
   gem 'sinatra-contrib'
-  gem 'unicorn'
 end
 group :deployment do
+  gem 'unicorn'
+  gem 'mina'
 end
 group :test do
   gem 'guard-rspec', require: false

@@ -9,6 +9,7 @@ group :test, :deployment do
   gem 'rake', '>= 10.2.2'
   gem 'mina'
   gem 'sinatra-contrib'
+  gem 'unicorn'
 end
 group :deployment do
 end

@@ -2,6 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/gouf/pplog-queue/badge.png?branch=dev)](https://coveralls.io/r/gouf/pplog-queue?branch=dev)
 [![Build Status](https://travis-ci.org/gouf/pplog-queue.png?branch=dev)](https://travis-ci.org/gouf/pplog-queue)
+[![Build Status](http://drone.inn0centzero.com/github.com/gouf/pplog-queue/status.svg?branch=master)](http://drone.inn0centzero.com/github.com/gouf/pplog-queue)
 
 ぽえみをちょっと便利に。
 

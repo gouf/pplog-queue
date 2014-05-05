@@ -1,0 +1,9 @@
+image: bradrydzewski/ruby:2.0.0
+script:
+  - sudo apt-get -y install libsqlite3-dev sqlite3 1> /dev/null 2> /dev/null
+  - bundle
+  - bundle exec rake
+notify:
+ email:
+  recipients:
+    - innocent.zero@gmail.com

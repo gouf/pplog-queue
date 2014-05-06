@@ -1,6 +1,7 @@
-image: innocentzero/ruby:2.1.1
+image: innocentzero/rbenv:latest
 script:
   - sudo apt-get -y install libsqlite3-dev sqlite3 1> /dev/null 2> /dev/null
+  - rbenv global 2.1.1
   - bundle
   - bundle exec rake
 notify:

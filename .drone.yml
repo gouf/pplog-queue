@@ -1,4 +1,4 @@
-image: innocentzero/rbenv:latest
+image: innocentzero/rbenv:2.1.1
 script:
   - sudo apt-get -y install libsqlite3-dev sqlite3 1> /dev/null 2> /dev/null
   - rbenv global 2.1.1

@@ -4,26 +4,3 @@
 # one by one as the offenses are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
-
-# Offense count: 2
-Lint/AmbiguousRegexpLiteral:
-  Enabled: false
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Lint/UnusedBlockArgument:
-  Enabled: false
-
-# Offense count: 2
-Lint/UselessAssignment:
-  Enabled: false
-
-# Offense count: 10
-
-# Offense count: 2
-Style/AccessorMethodName:
-  Enabled: false
-
-# Offense count: 3
-Style/Documentation:
-  Enabled: false

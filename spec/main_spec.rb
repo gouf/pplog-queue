@@ -31,7 +31,7 @@ describe 'PPLogQueue' do
     context 'when post' do
       let(:post_body) { 'ぽぽぽ' }
       before do
-        post '/create', params = {
+        post '/create', _params = {
           body: post_body
         }
       end

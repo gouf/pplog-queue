@@ -1,18 +1,20 @@
 require 'mechanize'
 require 'pp'
 
+# a. login to twitter
+# b. post user poem to pplog.net
 module PoemPoster
   def post_poem(poem)
     return if poem.empty?
-    new_post_form = get_post_new_page.forms.first
+    new_post_form = click_post_new_page.forms.first
     new_post_form.field_with(name: 'post[content]').value = poem
 
     new_post_form.submit
   end
 
-  def get_post_new_page
-    pplog_home_page = get_pplog_home_page
-    new_poem_page = pplog_home_page.link_with(href: '/my/posts/new').click
+  def click_post_new_page
+    # new poem page
+    pplog_home_page.link_with(href: '/my/posts/new').click
   end
 
   def user_name
@@ -25,7 +27,7 @@ module PoemPoster
     ENV['PPLOG_USER_PASSWORD']
   end
 
-  def get_pplog_home_page # 1 -> access_twitter_page
+  def pplog_home_page # 1 -> access_twitter_page
     # Run authorize
     access_twitter_page
     login_to_twitter

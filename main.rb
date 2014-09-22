@@ -4,6 +4,7 @@ require 'pp'
 require_relative 'mec.rb'
 require_relative 'yaml_record'
 
+# Recieve and post user poem
 class PPLogQueue < Sinatra::Base
   include PoemPoster
 

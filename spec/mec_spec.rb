@@ -25,34 +25,37 @@ describe PoemPoster do
     before do
       FakeWeb.allow_net_connect = false
       FakeWeb.register_uri(:get,
-        (@auth_twitter = 'https://www.pplog.net/users/auth/twitter'),
-        body: File.read('test_html/auth_twitter.html'),
-        content_type: 'text/html'
+                           (@auth_twitter = 'https://www.pplog.net/users/auth/twitter'),
+                           body: File.read('test_html/auth_twitter.html'),
+                           content_type: 'text/html'
       )
       FakeWeb.register_uri(:post,
-        (@auth_twitter = 'https://api.twitter.com/oauth/authorize'),
-        body: File.read('test_html/allow_auth_twitter.html'),
-        content_type: 'text/html'
+                           (@auth_twitter = 'https://api.twitter.com/oauth/authorize'),
+                           body: File.read('test_html/allow_auth_twitter.html'),
+                           content_type: 'text/html'
+      )
+      file_path = 'test_html/pplog_home_loggedin.html'
+      FakeWeb.register_uri(:get,
+                           (@pplog_callback_page = 'https://www.pplog.net/users/auth/twitter/callback?oauth_token=h?oauth_verifier=f'),
+                           body: File.read(file_path),
+                           content_type: 'text/html'
+      )
+      file_path = 'test_html/pplog_home_loggedin.html'
+      FakeWeb.register_uri(:get,
+                           (@pplog_post_new = 'https://www.pplog.net/my/posts/new'),
+                           body: File.read(file_path),
+                           content_type: 'text/html'
       )
       FakeWeb.register_uri(:get,
-        (@pplog_callback_page = 'https://www.pplog.net/users/auth/twitter/callback?oauth_token=h?oauth_verifier=f'),
-        body: File.read('test_html/pplog_home_loggedin.html'),
-        content_type: 'text/html'
+                           (@pplog_post_new = 'https://www.pplog.net/my/posts/new'),
+                           body: File.read('test_html/pplog_post_new.html'),
+                           content_type: 'text/html'
       )
-      FakeWeb.register_uri(:get,
-        (@pplog_post_new = 'https://www.pplog.net/my/posts/new'),
-        body: File.read('test_html/pplog_home_loggedin.html'),
-        content_type: 'text/html'
-      )
-      FakeWeb.register_uri(:get,
-        (@pplog_post_new = 'https://www.pplog.net/my/posts/new'),
-        body: File.read('test_html/pplog_post_new.html'),
-        content_type: 'text/html'
-      )
+      file_path = 'test_html/pplog_home_loggedin.html'
       FakeWeb.register_uri(:post,
-        (@pplog_post_new = 'https://www.pplog.net/my/posts'),
-        body: File.read('test_html/pplog_home_loggedin.html'),
-        content_type: 'text/html'
+                           (@pplog_post_new = 'https://www.pplog.net/my/posts'),
+                           body: File.read(file_path),
+                           content_type: 'text/html'
       )
     end
     context 'when get twitter authorize page' do
@@ -127,7 +130,7 @@ describe PoemPoster do
       end
     end
     context 'when get pplog post new page' do
-      subject { get_post_new_page }
+      subject { click_post_new_page }
       it do
         expect(subject).not_to be_nil
         expect(subject.instance_of?(Mechanize::Page)).to be_truthy

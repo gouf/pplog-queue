@@ -19,9 +19,6 @@ Lint/UselessAssignment:
   Enabled: false
 
 # Offense count: 10
-# Configuration parameters: AllowURI, URISchemes.
-Metrics/LineLength:
-  Max: 180
 
 # Offense count: 2
 Style/AccessorMethodName:

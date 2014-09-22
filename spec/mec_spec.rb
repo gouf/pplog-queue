@@ -145,7 +145,8 @@ describe PoemPoster do
         expect(page).not_to be_nil
       }
       it 'will get Argument Error' do
-        expect{post_poem()}.to raise_error(ArgumentError, 'wrong number of arguments (0 for 1)')
+        message = 'wrong number of arguments (0 for 1)'
+        expect{post_poem()}.to raise_error(ArgumentError, message)
       end
       it 'will get nil' do
         return_data = post_poem('')

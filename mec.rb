@@ -65,7 +65,8 @@ module PoemPoster
 
   def pass_confirmation # 4 -> return pplog_page
     # allow authorize
-    pplog_page = @auth_confirm_page.link_with(text: 'click here to continue').click
+    pplog_page =
+      @auth_confirm_page.link_with(text: 'click here to continue').click
     fail 'Login Failed' if pplog_page.nil?
 
     @pplog_home_page = pplog_page

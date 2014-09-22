@@ -11,8 +11,6 @@ group :deployment do
   gem 'unicorn'
   gem 'mina'
 end
-group :test do
-end
 group :test, :development do
   gem 'coveralls', require: false
   gem 'guard-rspec', require: false

@@ -12,7 +12,6 @@ group :deployment do
   gem 'mina'
 end
 group :test do
-  gem 'coveralls', require: false
 end
 group :test, :development do
   gem 'guard-rspec', require: false
@@ -23,6 +22,7 @@ group :test, :development do
   gem 'reek'
   gem 'quality'
   gem 'dotenv'
+  gem 'coveralls', require: false
 end
 group :development do
   gem 'should_clean', require: false

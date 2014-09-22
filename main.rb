@@ -4,7 +4,7 @@ require 'pp'
 require_relative 'mec.rb'
 require_relative 'yaml_record'
 
-
+# Recieve and post user poem
 class PPLogQueue < Sinatra::Base
   include PoemPoster
 
@@ -19,7 +19,7 @@ class PPLogQueue < Sinatra::Base
 
   post '/create' do
     body = params[:body]
-    Post.create(:body => body)
+    Post.create(body: body)
     redirect '/'
   end
 

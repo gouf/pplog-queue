@@ -1,5 +1,6 @@
 require 'yaml_record'
 
+# Manage user poem in YAML
 class Post < YamlRecord::Base
   properties :body
   adapter :local

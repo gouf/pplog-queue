@@ -1,18 +1,20 @@
 require 'mechanize'
 require 'pp'
 
+# a. login to twitter
+# b. post user poem to pplog.net
 module PoemPoster
-  def post_poem poem
+  def post_poem(poem)
     return if poem.empty?
-    new_post_form = get_post_new_page.forms.first
+    new_post_form = click_post_new_page.forms.first
     new_post_form.field_with(name: 'post[content]').value = poem
 
     new_post_form.submit
   end
 
-  def get_post_new_page
-    pplog_home_page = get_pplog_home_page
-    new_poem_page = pplog_home_page.link_with(href: '/my/posts/new').click
+  def click_post_new_page
+    # new poem page
+    pplog_home_page.link_with(href: '/my/posts/new').click
   end
 
   def user_name
@@ -25,7 +27,7 @@ module PoemPoster
     ENV['PPLOG_USER_PASSWORD']
   end
 
-  def get_pplog_home_page # 1 -> access_twitter_page
+  def pplog_home_page # 1 -> access_twitter_page
     # Run authorize
     access_twitter_page
     login_to_twitter
@@ -50,22 +52,20 @@ module PoemPoster
 
   def fillup_auth_form
     auth_form = @twitter_page.forms.first
-    user_name = user_name()
-    password  = password()
     auth_form.field_with(name: 'session[username_or_email]').value = user_name
     auth_form.field_with(name: 'session[password]').value = password
     auth_form
   end
 
-  def submit_auth_form auth_form
+  def submit_auth_form(auth_form)
     submit_button = auth_form.buttons.first
     @auth_confirm_page = auth_form.submit(submit_button)
   end
 
-
   def pass_confirmation # 4 -> return pplog_page
     # allow authorize
-    pplog_page = @auth_confirm_page.link_with(text: 'click here to continue').click
+    pplog_page =
+      @auth_confirm_page.link_with(text: 'click here to continue').click
     fail 'Login Failed' if pplog_page.nil?
 
     @pplog_home_page = pplog_page

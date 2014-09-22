@@ -23,4 +23,6 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'reek'
   gem 'pry-coolline'
+  gem 'rubocop'
+  gem 'guard-rubocop'
 end

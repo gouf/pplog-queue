@@ -22,6 +22,5 @@ end
 group :development do
   gem 'guard-rspec', require: false
   gem 'reek'
-  gem 'quality'
   gem 'pry-coolline'
 end

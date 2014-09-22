@@ -11,10 +11,8 @@ group :deployment do
   gem 'unicorn'
   gem 'mina'
 end
-group :test do
-  gem 'coveralls', require: false
-end
 group :test, :development do
+  gem 'coveralls', require: false
   gem 'guard-rspec', require: false
   gem 'rspec'
   gem 'webmock', require: false
@@ -23,8 +21,5 @@ group :test, :development do
   gem 'reek'
   gem 'quality'
   gem 'dotenv'
-end
-group :development do
-  gem 'should_clean', require: false
-  gem 'should_not', require: false
+  gem 'pry-coolline'
 end

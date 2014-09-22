@@ -33,7 +33,7 @@ describe "Post" do
     end
 
     context "when insert two records" do
-      before { %w(foo bar).each {|x| subject.create(body: x)} }
+      before { %w(foo bar).each { |x| subject.create(body: x) } }
 
       it "is first record body as 'foo'" do
         expect(subject.all.first.body).to eq 'foo'

@@ -4,7 +4,7 @@ require_relative '../main'
 
 describe "PPLogQueue" do
   include Rack::Test::Methods
-  let(:dummyclass){Class.new {include PoemPoster}}
+  let(:dummyclass) { Class.new { include PoemPoster } }
 
   def app
     PPLogQueue.new
@@ -20,7 +20,7 @@ describe "PPLogQueue" do
       it "get OK" do
         expect(last_response).to be_ok
       end
-      subject {last_response.body}
+      subject { last_response.body }
       it "is HTML page" do
         expect(subject).to be_include('ぽすと')
         expect(subject).to be_include('textarea')

@@ -9,7 +9,7 @@ RSpec.configure do |config|
 end
 
 describe PoemPoster do
-  let(:dummyclass){Class.new {include PoemPoster}}
+  let(:dummyclass) { Class.new { include PoemPoster } }
   context 'when load user info' do
     it 'is user_name not empty"' do
       expect(user_name.class).to eq String
@@ -146,7 +146,7 @@ describe PoemPoster do
       end
       it 'will get Argument Error' do
         message = 'wrong number of arguments (0 for 1)'
-        expect{post_poem()}.to raise_error(ArgumentError, message)
+        expect { post_poem() }.to raise_error(ArgumentError, message)
       end
       it 'will get nil' do
         return_data = post_poem('')

@@ -19,7 +19,6 @@ group :test, :development do
   gem 'fakeweb'
   gem 'fuubar'
   gem 'reek'
-  gem 'quality'
   gem 'dotenv'
   gem 'pry-coolline'
 end

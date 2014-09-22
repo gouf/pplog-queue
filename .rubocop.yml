@@ -3,6 +3,7 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   Exclude:
     - Guardfile
+    - Gemfile
     - config/*
     - unicorn.conf.rb
 
@@ -61,4 +62,39 @@ Style/PercentLiteralDelimiters:
 
 # Cop supports --auto-correct.
 Style/RedundantBegin:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/MethodDefParentheses:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/MethodCallParentheses:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/LeadingCommentSpace:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/IndentationConsistency:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/HashSyntax:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/EmptyLines:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/CommentIndentation:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/AlignParameters:
   Enabled: true

@@ -21,7 +21,7 @@ describe PoemPoster do
     end
   end
 
-  describe "getting pplog logged-in page" do
+  describe 'getting pplog logged-in page' do
     before do
       FakeWeb.allow_net_connect = false
       FakeWeb.register_uri(:get,
@@ -64,7 +64,7 @@ describe PoemPoster do
       end
     end
 
-    context "when filledup auth form" do
+    context 'when filledup auth form' do
       before do
         access_twitter_page
       end
@@ -89,12 +89,12 @@ describe PoemPoster do
       end
     end
 
-    context "when passed auth form submit " do
+    context 'when passed auth form submit ' do
       before do
         access_twitter_page
       end
       subject { submit_auth_form(fillup_auth_form) }
-      it "returns page" do
+      it 'returns page' do
         expect(subject.instance_of?(Mechanize::Page)).to be_truthy
       end
       it 'page has form' do
@@ -112,7 +112,7 @@ describe PoemPoster do
         expect(link.instance_of?(Mechanize::Page::Link)).to be_truthy
       end
     end
-    context "when passed confirm authorize page" do
+    context 'when passed confirm authorize page' do
       before do
         access_twitter_page
         login_to_twitter
@@ -126,13 +126,13 @@ describe PoemPoster do
         expect(url).to eq @pplog_callback_page
       end
     end
-    context "when get pplog post new page" do
+    context 'when get pplog post new page' do
       subject { get_post_new_page }
       it do
         expect(subject).not_to be_nil
         expect(subject.instance_of?(Mechanize::Page)).to be_truthy
       end
-      it "has a form" do
+      it 'has a form' do
         form = subject.forms.count
         expect(form).not_to eq 0
         expect(form).to eq 1
@@ -146,7 +146,7 @@ describe PoemPoster do
       end
       it 'will get Argument Error' do
         message = 'wrong number of arguments (0 for 1)'
-        expect { post_poem() }.to raise_error(ArgumentError, message)
+        expect { post_poem }.to raise_error(ArgumentError, message)
       end
       it 'will get nil' do
         return_data = post_poem('')

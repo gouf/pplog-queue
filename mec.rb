@@ -2,7 +2,7 @@ require 'mechanize'
 require 'pp'
 
 module PoemPoster
-  def post_poem poem
+  def post_poem(poem)
     return if poem.empty?
     new_post_form = get_post_new_page.forms.first
     new_post_form.field_with(name: 'post[content]').value = poem
@@ -50,18 +50,15 @@ module PoemPoster
 
   def fillup_auth_form
     auth_form = @twitter_page.forms.first
-    user_name = user_name()
-    password  = password()
     auth_form.field_with(name: 'session[username_or_email]').value = user_name
     auth_form.field_with(name: 'session[password]').value = password
     auth_form
   end
 
-  def submit_auth_form auth_form
+  def submit_auth_form(auth_form)
     submit_button = auth_form.buttons.first
     @auth_confirm_page = auth_form.submit(submit_button)
   end
-
 
   def pass_confirmation # 4 -> return pplog_page
     # allow authorize

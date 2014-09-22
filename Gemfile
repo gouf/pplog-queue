@@ -13,13 +13,15 @@ group :deployment do
 end
 group :test, :development do
   gem 'coveralls', require: false
-  gem 'guard-rspec', require: false
   gem 'rspec'
   gem 'webmock', require: false
   gem 'fakeweb'
   gem 'fuubar'
+  gem 'dotenv'
+end
+group :development do
+  gem 'guard-rspec', require: false
   gem 'reek'
   gem 'quality'
-  gem 'dotenv'
   gem 'pry-coolline'
 end

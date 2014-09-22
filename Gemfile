@@ -21,8 +21,5 @@ group :test, :development do
   gem 'reek'
   gem 'quality'
   gem 'dotenv'
-end
-group :development do
-  gem 'should_clean', require: false
-  gem 'should_not', require: false
+  gem 'pry-coolline'
 end

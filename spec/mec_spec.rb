@@ -11,11 +11,13 @@ end
 describe PoemPoster do
   let(:dummyclass){Class.new {include PoemPoster}}
   context 'when load user info' do
-    it 'is user_name your_user_name"' do
-      expect(user_name).to eq 'your_user_name'
+    it 'is user_name not empty"' do
+      expect(user_name.class).to eq String
+      expect(user_name.empty?).to be_falsey
     end
-    it 'is password as "your_password"' do
-      expect(password).to eq 'your_password'
+    it 'is password not empty' do
+      expect(user_name.class).to eq String
+      expect(user_name.empty?).to be_falsy
     end
   end
 

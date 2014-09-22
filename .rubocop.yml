@@ -34,7 +34,7 @@ Style/SymbolProc:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/StringLiterals:
-  Enabled: false
+  Enabled: true
 
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
@@ -48,4 +48,17 @@ Style/SpaceBeforeBlockBraces:
 
 # Configuration parameters: MaxSlashes.
 Style/RegexpLiteral:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/NumericLiterals:
+  MinDigits: 6
+
+# Cop supports --auto-correct.
+# Configuration parameters: PreferredDelimiters.
+Style/PercentLiteralDelimiters:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/RedundantBegin:
   Enabled: true

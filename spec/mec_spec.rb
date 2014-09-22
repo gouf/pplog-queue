@@ -74,16 +74,16 @@ describe PoemPoster do
         subject.field_with(name: 'session[username_or_email]').value
       }
       it {
-        should_not be_nil
+        is_expected.not_to be_nil
       }
       it 'form action' do
         expect(subject.action).to eq @auth_twitter
       end
       it 'username_or_email field is not empty' do
-        username_field.should_not be_empty
+        expect(username_field).not_to be_empty
       end
       it 'password field is not empty' do
-        password_field.should_not be_empty
+        expect(password_field).not_to be_empty
       end
     end
 
@@ -93,7 +93,7 @@ describe PoemPoster do
       }
       subject { submit_auth_form(fillup_auth_form) }
       it "returns page" do
-        expect(subject.instance_of?(Mechanize::Page)).to be_true
+        expect(subject.instance_of?(Mechanize::Page)).to be_truthy
       end
       it 'page has form' do
         form = subject.forms.count
@@ -107,7 +107,7 @@ describe PoemPoster do
       it 'link text is "click here to continue"' do
         link = subject.link_with(text: 'click here to continue')
         expect(link).not_to be_nil
-        expect(link.instance_of?(Mechanize::Page::Link)).to be_true
+        expect(link.instance_of?(Mechanize::Page::Link)).to be_truthy
       end
     end
     context "when passed confirm authorize page" do
@@ -117,7 +117,7 @@ describe PoemPoster do
       }
       subject { pass_confirmation }
       it {
-        should_not be_nil
+        is_expected.not_to be_nil
       }
       it 'is pplog callback url' do
         url = subject.uri.to_s
@@ -128,7 +128,7 @@ describe PoemPoster do
       subject { get_post_new_page }
       it {
         expect(subject).not_to be_nil
-        expect(subject.instance_of?(Mechanize::Page)).to be_true
+        expect(subject.instance_of?(Mechanize::Page)).to be_truthy
       }
       it "has a form" do
         form = subject.forms.count

@@ -12,9 +12,9 @@ group :deployment do
   gem 'mina'
 end
 group :test do
-  gem 'coveralls', require: false
 end
 group :test, :development do
+  gem 'coveralls', require: false
   gem 'guard-rspec', require: false
   gem 'rspec'
   gem 'webmock', require: false

@@ -11,7 +11,7 @@ describe "PPLogQueue" do
   end
 
   before do
-    Post.all.each{|x| x.destroy}
+    Post.all.each(&:destroy)
     FakeWeb.allow_net_connect = false
   end
   describe "Response Test" do
@@ -55,7 +55,7 @@ describe "PPLogQueue" do
     let(:post_id) { 12345.to_s }
   end
   after do
-    Post.all.each{|x| x.destroy}
+    Post.all.each(&:destroy)
     FakeWeb.allow_net_connect = true
   end
 end

@@ -11,7 +11,7 @@ describe "Post" do
     subject { Post }
 
     def remove_all_records
-      (subject.all).each{|x| x.destroy}
+      (subject.all).each(&:destroy)
     end
 
     context "when delete all posts" do

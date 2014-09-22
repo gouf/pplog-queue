@@ -20,3 +20,18 @@ Style/AndOr:
 # Cop supports --auto-correct.
 Style/Blocks:
   Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/TrailingBlankLines:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: IgnoredMethods.
+Style/SymbolProc:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/StringLiterals:
+  Enabled: false

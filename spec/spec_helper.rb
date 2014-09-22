@@ -6,7 +6,6 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'rack/test'
 require 'webmock/rspec'
-require 'should_not/rspec'
 require 'fakeweb'
 require 'coveralls'
 

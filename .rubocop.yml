@@ -4,9 +4,19 @@ AllCops:
   Exclude:
     - Guardfile
     - config/*
+    - unicorn.conf.rb
 
 
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
   Max: 80
   AllowURI: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/AndOr:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Style/Blocks:
+  Enabled: true

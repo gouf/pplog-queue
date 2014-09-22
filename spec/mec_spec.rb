@@ -22,7 +22,7 @@ describe PoemPoster do
   end
 
   describe "getting pplog logged-in page" do
-    before {
+    before do
       FakeWeb.allow_net_connect = false
       FakeWeb.register_uri(:get,
         (@auth_twitter = 'https://www.pplog.net/users/auth/twitter'),
@@ -54,30 +54,30 @@ describe PoemPoster do
         body: File.read('test_html/pplog_home_loggedin.html'),
         content_type: 'text/html'
       )
-    }
+    end
     context 'when get twitter authorize page' do
-      it {
+      it do
         expect(access_twitter_page).not_to be_nil
-      }
+      end
       it 'url is access_twitter_page' do
         expect(access_twitter_page.uri.to_s).to eq 'https://www.pplog.net/users/auth/twitter'
       end
     end
 
     context "when filledup auth form" do
-      before {
+      before do
         access_twitter_page
-      }
+      end
       subject { fillup_auth_form }
-      let(:username_field) {
+      let(:username_field) do
         subject.field_with(name: 'session[username_or_email]').value
-      }
-      let(:password_field) {
+      end
+      let(:password_field) do
         subject.field_with(name: 'session[username_or_email]').value
-      }
-      it {
+      end
+      it do
         is_expected.not_to be_nil
-      }
+      end
       it 'form action' do
         expect(subject.action).to eq @auth_twitter
       end
@@ -90,9 +90,9 @@ describe PoemPoster do
     end
 
     context "when passed auth form submit " do
-      before {
+      before do
         access_twitter_page
-      }
+      end
       subject { submit_auth_form(fillup_auth_form) }
       it "returns page" do
         expect(subject.instance_of?(Mechanize::Page)).to be_truthy
@@ -113,14 +113,14 @@ describe PoemPoster do
       end
     end
     context "when passed confirm authorize page" do
-      before {
+      before do
         access_twitter_page
         login_to_twitter
-      }
+      end
       subject { pass_confirmation }
-      it {
+      it do
         is_expected.not_to be_nil
-      }
+      end
       it 'is pplog callback url' do
         url = subject.uri.to_s
         expect(url).to eq @pplog_callback_page
@@ -128,10 +128,10 @@ describe PoemPoster do
     end
     context "when get pplog post new page" do
       subject { get_post_new_page }
-      it {
+      it do
         expect(subject).not_to be_nil
         expect(subject.instance_of?(Mechanize::Page)).to be_truthy
-      }
+      end
       it "has a form" do
         form = subject.forms.count
         expect(form).not_to eq 0
@@ -140,10 +140,10 @@ describe PoemPoster do
       end
     end
     context 'when posting poem' do
-      it {
+      it do
         page = post_poem('ぽえみ')
         expect(page).not_to be_nil
-      }
+      end
       it 'will get Argument Error' do
         message = 'wrong number of arguments (0 for 1)'
         expect{post_poem()}.to raise_error(ArgumentError, message)
@@ -154,7 +154,7 @@ describe PoemPoster do
       end
     end
   end
-  after {
+  after do
     FakeWeb.allow_net_connect = true
-  }
+  end
 end

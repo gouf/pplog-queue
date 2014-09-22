@@ -10,10 +10,10 @@ describe "PPLogQueue" do
     PPLogQueue.new
   end
 
-  before {
+  before do
     Post.all.each{|x| x.destroy}
     FakeWeb.allow_net_connect = false
-  }
+  end
   describe "Response Test" do
     before { get '/' }
     context "when accessing '/'" do
@@ -31,11 +31,11 @@ describe "PPLogQueue" do
   describe "Create new poem" do
     context "when post" do
       let(:post_body) { 'ぽぽぽ' }
-      before {
+      before do
         post '/create', params = {
           body: post_body
         }
-      }
+      end
       it 'record is not empty' do
         expect(Post.all.count).to_not eq 0
       end
@@ -54,8 +54,8 @@ describe "PPLogQueue" do
   describe "Post to pplog" do
     let(:post_id) { 12345.to_s }
   end
-  after {
+  after do
     Post.all.each{|x| x.destroy}
     FakeWeb.allow_net_connect = true
-  }
+  end
 end

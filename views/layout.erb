@@ -8,6 +8,8 @@
   <%= bootstrap_css true %>
 </head>
 <body>
-  <%= yield %>
+  <% container :div do %>
+    <%= yield %>
+  <% end %>
 </body>
 </html>

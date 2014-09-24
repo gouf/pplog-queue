@@ -5,6 +5,8 @@ require 'sinatra/bootstrap'
 require_relative 'mec.rb'
 require_relative 'yaml_record'
 
+configure { set :server, :puma }
+
 # Recieve and post user poem
 class PPLogQueue < Sinatra::Base
   include PoemPoster

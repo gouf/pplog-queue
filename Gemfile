@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'rspec'
 group :test, :deployment, :development do
   gem 'mechanize'
   gem 'sinatra'
@@ -7,14 +8,15 @@ group :test, :deployment, :development do
   gem 'rake', '>= 10.2.2'
   gem 'sinatra-contrib'
   gem 'sinatra-bootstrap', require: 'sinatra/bootstrap'
+  gem 'foreman'
 end
 group :deployment do
   gem 'puma'
+  gem 'unicorn'
   gem 'mina'
 end
 group :test, :development do
   gem 'coveralls', require: false
-  gem 'rspec'
   gem 'webmock', require: false
   gem 'fakeweb'
   gem 'fuubar'

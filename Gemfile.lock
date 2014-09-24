@@ -48,7 +48,6 @@ GEM
     hitimes (1.2.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    kgio (2.9.2)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -87,13 +86,14 @@ GEM
       slop (~> 3.4)
     pry-coolline (0.2.5)
       coolline (~> 0.5)
+    puma (2.7.1)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rainbow (2.0.0)
-    raindrops (0.13.0)
     rake (10.3.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
@@ -165,10 +165,6 @@ GEM
       unf_ext
     unf_ext (0.0.6)
     unicode_utils (1.4.0)
-    unicorn (4.8.3)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     webmock (1.18.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -189,6 +185,7 @@ DEPENDENCIES
   mechanize
   mina
   pry-coolline
+  puma
   rake (>= 10.2.2)
   reek
   rspec
@@ -196,6 +193,5 @@ DEPENDENCIES
   sinatra
   sinatra-bootstrap
   sinatra-contrib
-  unicorn
   webmock
   yaml_record

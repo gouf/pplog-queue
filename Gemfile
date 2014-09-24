@@ -9,7 +9,7 @@ group :test, :deployment, :development do
   gem 'sinatra-bootstrap', require: 'sinatra/bootstrap'
 end
 group :deployment do
-  gem 'unicorn'
+  gem 'puma'
   gem 'mina'
 end
 group :test, :development do

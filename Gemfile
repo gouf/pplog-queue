@@ -7,6 +7,7 @@ group :test, :deployment, :development do
   gem 'rake', '>= 10.2.2'
   gem 'sinatra-contrib'
   gem 'sinatra-bootstrap', require: 'sinatra/bootstrap'
+  gem 'foreman'
 end
 group :deployment do
   gem 'puma'

@@ -1,0 +1,5 @@
+deployment:
+  staging:
+    branch: circle-ci/deploy-to-heroku
+    heroku:
+      appname: pplog-queue

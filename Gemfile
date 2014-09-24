@@ -12,6 +12,7 @@ group :test, :deployment, :development do
 end
 group :deployment do
   gem 'puma'
+  gem 'unicorn'
   gem 'mina'
 end
 group :test, :development do

@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pp'
+require 'sinatra/bootstrap'
 require_relative 'mec.rb'
 require_relative 'yaml_record'
 
@@ -8,6 +9,7 @@ require_relative 'yaml_record'
 class PPLogQueue < Sinatra::Base
   include PoemPoster
 
+  register Sinatra::Bootstrap::Assets
   configure :development do
     register Sinatra::Reloader
   end

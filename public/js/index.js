@@ -18,3 +18,10 @@ $('.post').click(function() {
   });
 });
 
+$(document).ready( function() {
+  // Remove notification box if already posts stocked.
+  var postStockSize = $('.post').size();
+  if (postStockSize != 0) {
+    $('.mock-post').detach();
+  }
+});

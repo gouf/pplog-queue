@@ -5,8 +5,11 @@
   <link rel="stylesheet" href="./css/layout.css">
   <script src="./js/jquery/jquery.min.js"></script>
   <title><%= @title || "Sinatra App" %></title>
+  <%= bootstrap_css true %>
 </head>
 <body>
-  <%= yield %>
+  <% container :div do %>
+    <%= yield %>
+  <% end %>
 </body>
 </html>

@@ -5,9 +5,9 @@ function fadeOut(elm) {
   });
 }
 $('.post').click(function() {
-  var id = $(this).children('.id').text()
+  var id = $(this).children('.id').text();
   console.log(id);
-  var url = '/post'
+  var url = '/post';
   $.ajax({
     type: 'POST',
     url: url,

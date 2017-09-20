@@ -9,6 +9,7 @@ group :test, :deployment, :development do
   gem 'sinatra-contrib'
   gem 'sinatra-bootstrap', require: 'sinatra/bootstrap'
   gem 'foreman'
+  gem 'rack-test'
 end
 group :deployment do
   gem 'puma'

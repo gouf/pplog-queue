@@ -112,6 +112,8 @@ GEM
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
+    rack-test (0.7.0)
+      rack (>= 1.0, < 3)
     rainbow (2.2.2)
       rake
     raindrops (0.19.0)
@@ -211,6 +213,7 @@ DEPENDENCIES
   mina
   pry-coolline
   puma
+  rack-test
   rake (>= 10.2.2)
   reek
   rspec
